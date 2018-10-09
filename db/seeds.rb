@@ -21,11 +21,39 @@ books = Book.create([{title: "The Iliad",  pages:260 , year_published:1975 , ima
                      {title: "Gorgias", pages:168, year_published:1998, image_url: "https://images-na.ssl-images-amazon.com/images/I/31NKNCYX3AL._SX312_BO1,204,203,200_.jpg"},
                     ])
 
-"Homer"
-"Aeschylus"
-"Sophocles"
-"Thucydides "
-"Euripides"
-"Herodotus "
-"Aristophanes "
-"Plato"
+authors = Author.create([{name: "Homer"},
+                          {name: "Aeschylus"},
+                          {name: "Sophocles"},
+                          {name: "Thucydides"},
+                          {name: "Euripides"},
+                          {name: "Herodotus"},
+                          {name: "Aristophanes"},
+                          {name: "Plato"}
+                    ])
+users = User.create([{name: "John Smith"},
+                     {name: "Jennifer Doe"},
+                     {name: "Calvin McCarthy"},
+                     {name: "Edward Edwards"},
+                     {name: "Thomas Harris"},
+                     {name: "Ruth Brand"},
+                     {name: "Melvin Cedeno"},
+                     {name: "Averi Johnson"},
+                     {name: "Isaac Falkenstine"},
+                     {name: "Ian Douglas"},
+                     {name: "Dione Wilson"},
+
+                     ])
+
+reviews = Review.create([{title: "The Peloponnesian War", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: },
+                         {title: " ", description:" ", score: }
+
+                      ])
