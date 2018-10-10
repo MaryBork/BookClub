@@ -190,6 +190,19 @@
         1,
         null
       ],
+      "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/spec/models/author_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
       "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/app/models/author.rb": [
         1,
         1,
@@ -286,8 +299,23 @@
         1,
         1,
         null
+      ],
+      "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/app/controllers/books_controller.rb": [
+        1,
+        null,
+        1,
+        4,
+        null,
+        null,
+        null
+      ],
+      "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1539194422
+    "timestamp": 1539201137
   }
 }
