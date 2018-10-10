@@ -181,6 +181,8 @@
       "/Users/meghanstang/turing/2module/projects/BookClub/config/routes.rb": [
         1,
         null,
+        null,
+        1,
         null
       ],
       "/Users/meghanstang/turing/2module/projects/BookClub/app/helpers/application_helper.rb": [
@@ -228,6 +230,9 @@
         2,
         2,
         2,
+        2,
+        null,
+        1,
         2,
         null,
         null
@@ -284,6 +289,6 @@
         null
       ]
     },
-    "timestamp": 1539138666
+    "timestamp": 1539188405
   }
 }

@@ -10,6 +10,9 @@ describe Book, type: :model do
     it {should have_many(:book_authors)}
     it {should have_many(:reviews)}
     it {should have_many(:authors).through(:book_authors)}
-    it {should have_many(:users).through(:book_authors)}
+    it {should have_many(:users).through(:reviews)}
+  end
+  describe 'Instance Methods' do
+    it {should }
   end
 end
