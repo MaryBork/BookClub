@@ -247,6 +247,8 @@
         2,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/app/models/book.rb": [
@@ -256,6 +258,8 @@
         1,
         1,
         1,
+        null,
+        null,
         null
       ],
       "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/spec/models/review_spec.rb": [
@@ -271,6 +275,32 @@
         2,
         2,
         null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/app/models/review.rb": [
@@ -278,6 +308,10 @@
         1,
         1,
         1,
+        null,
+        1,
+        101,
+        null,
         null
       ],
       "/Users/trevorfahey/Projects/Mod2/BookClub/book_club/spec/models/user_spec.rb": [
@@ -316,6 +350,6 @@
         null
       ]
     },
-    "timestamp": 1539201137
+    "timestamp": 1539204844
   }
 }

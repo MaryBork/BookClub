@@ -1,11 +1,28 @@
 <h1> All Books </h1>
+<select>
+<option> <a href= "/books?=direction=ASC"> Average Rating  </a>  </option>
+<option> <a href= "/books "> Number of Pages </a>  </option>
+<option> <a href= " "> Number of Reviews </a>  </option>
+<option> <a href= " "> Average Rating Descending  </a>  </option>
+<option> <a href= " "> Number of Pages Descending </a>  </option>
+<option> <a href= " "> Number of Reviews Descending </a>  </option>
+</select>
 
+<%= link_to "Average Rating", :sort => book.reviews.average_review %>
+<%= link_to "Number of Pages", :sort => book.pages %>
+<%= link_to "Number of Reviews", :sort => book.reviews.count %>
+
+<div>
 <% @books.each do |book| %>
-  <li><%= book.title %></li>
+
+  <li><%= book.title %>   [Average Review: <%= book.reviews.average_review%> Stars]</li>
+  <li>Number of Reviews:  <%= book.reviews.count %>  </li>
   <% book.authors.each do |author| %>
     <li><%= author.name %></li>
   <% end %>
   <li><%= book.pages %> Pages</li>
   <li>Published in <%= book.year %></li>
+
   <p><img src= "<%= book.image_url %>"</img></p>
-<% end %>
+  <% end %>
+</div>

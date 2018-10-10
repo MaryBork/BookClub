@@ -13,4 +13,6 @@ describe Book, type: :model do
     it {should have_many(:users).through(:reviews)}
   end
 
+
+
 end

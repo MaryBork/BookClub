@@ -4,4 +4,6 @@ has_many :book_authors
 has_many :reviews
 has_many :authors, through: :book_authors
 has_many :users, through: :reviews
+
+
 end
