@@ -11,7 +11,7 @@
 
 <div>
 <% @books.each do |book| %>
-  <li><%= book.title %>   [Average Review: <%= book.reviews.average_review%> Stars]</li>
+  <li><%= link_to(book.title, book_path(book)) %>   [Average Review: <%= book.reviews.average_review%> Stars]</li>
   <li>Number of Reviews:  <%= book.reviews.count %>  </li>
   <% book.authors.each do |author| %>
     <li><%= author.name %></li>
@@ -25,12 +25,16 @@
 
 <div id= "statistics">
   <h1> STATISTICS </h1>
+  <div id= "highest_rated_books">
   <p>Highest Rated Books: <% @average_ordered_books.take(3).each do |book| %>
     <li><%= book.title %> </li>
     <% end %>
   </p>
+  </div>
+  <div id="lowest_rated_books">
   <p>Worst Rated Books: <% @average_ordered_books.reverse.take(3).each do |book|%>
     <li><%= book.title %> </li>
     <% end %>
-</p>
+  </p>
+  </div>
 </div>

@@ -1,0 +1,24 @@
+<%= link_to("All Books", books_path) %>
+
+<h1>Show Page </h1>
+
+<div id="reviews">
+  <h2> Reviews </h2>
+  <% @show_book.highest_rated.each do |review| %>
+    <p> <%= review.title %> (<%= review.score %>) By <%= review.user.name %></p>
+  <% end %>
+
+</div>
+
+<p>Title:<%= @show_book.title %></p>
+<p> <%= @show_book.pages %> Pages </p>
+<p>Author(s):<% @show_book.authors.each do |author| %>
+  <li><%= author.name %></li>
+<% end %>
+</p>
+<p>Review(s):<%@show_book.reviews.each do |review| %>
+  <li><%= review.title %> (<%= review.score %>)</li>
+  <p>By <%= review.user.name %></p>
+  <p><%= review.description %></p>
+<% end %>
+</p>
