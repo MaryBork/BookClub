@@ -22,7 +22,6 @@ book_13 = Book.create(title: "Gorgias", pages:168, year:1998, image_url: "https:
 
 
 author_1 = Author.create(name: "Homer")
-  #author_1.books.create()
 author_2 = Author.create(name: "Aeschylus")
 author_3 = Author.create(name: "Sophocles")
 author_4 = Author.create(name: "Thucydides")

@@ -1,11 +1,17 @@
 <h1> All Books </h1>
 
-
+<select>
+  <option><a href="/books?direction=desc&sort=avg_rating">Average Rating DESC</a></option>
+  <option><a href="/books?direction=asc&sort=avg_rating">Average Rating ASC</a></option>
+  <option><a href="/books?direction=desc&sort=pages">Page Count DESC</a></option>
+  <option><a href="/books?direction=asc&sort=pages">Page Count ASC</a></option>
+  <option><a href="/books?direction=desc&sort=reviews.count">Total Reviews DESC</a></option>
+  <option><a href="/books?direction=asc&sort=reviews.count">Total Reviews ASC</a></option>
+</select>
 
 <div>
 <% @books.each do |book| %>
-
-  <li><%= book.title %>   [Average Review: <%= book.reviews.average_review%> Stars]</li>
+  <li><%= link_to(book.title, book_path(book)) %>   [Average Review: <%= book.reviews.average_review%> Stars]</li>
   <li>Number of Reviews:  <%= book.reviews.count %>  </li>
   <% book.authors.each do |author| %>
     <li><%= author.name %></li>
@@ -15,4 +21,20 @@
 
   <p><img src= "<%= book.image_url %>"</img></p>
   <% end %>
+</div>
+
+<div id= "statistics">
+  <h1> STATISTICS </h1>
+  <div id= "highest_rated_books">
+  <p>Highest Rated Books: <% @average_ordered_books.take(3).each do |book| %>
+    <li><%= book.title %> </li>
+    <% end %>
+  </p>
+  </div>
+  <div id="lowest_rated_books">
+  <p>Worst Rated Books: <% @average_ordered_books.reverse.take(3).each do |book|%>
+    <li><%= book.title %> </li>
+    <% end %>
+  </p>
+  </div>
 </div>
