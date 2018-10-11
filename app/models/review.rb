@@ -7,4 +7,6 @@ class Review < ApplicationRecord
     average(:score)
   end
 
+
+
 end

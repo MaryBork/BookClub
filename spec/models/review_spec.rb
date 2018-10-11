@@ -29,11 +29,13 @@ describe Review, type: :model do
         review_3 = Review.create(title: "The Odyssey Review", description:"my 10 year-old grandson loved it. good mix of graphics and well written story.", score: 4 , book: book_2, user:user_3)
         review_4 = Review.create(title: "Grew hair on my chest", description:"I believe that this book has made me a better man, which is remarkable because, well....I’m a chick.", score: 5, book: book_2, user:user_2 )
         review_5 = Review.create(title: "Four Stars", description:"Great book, should have read it sooner in life. Understand history, understand today.", score: 4, book: book_2, user: user_1)
-        
+
 
         expect(Review.average_review).to eq(4.2)
       end
     end
+
+
   end
 
 end
