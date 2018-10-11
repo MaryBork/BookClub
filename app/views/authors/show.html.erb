@@ -1,0 +1,27 @@
+<%= link_to("All Books", books_path) %>
+<%= link_to("All Authors", authors_path) %>
+
+<div id="author_attributes">
+  <% @show_author.books.each do |book| %>
+    <h1> <%= book.title %> </h1>
+    <%= book.reviews.average_review%> Stars</li>
+    <li>Number of Reviews:  <%= book.reviews.count %>  </li>
+    <% if book.authors.count >1 %>
+      <% book.authors.each do |author| %>
+          <% if author.name != "#{@show_author.name}" %>
+            <li>Additional Author(s): <%= author.name %></li>
+          <%end%>
+        <%end%>
+    <% end %>
+    <li><%= book.pages %> Pages</li>
+    <li>Published in <%= book.year %></li>
+    <p><img src= "<%= book.image_url %>"</img></p>
+    <div id="highest_review">
+      <h2> Highest Review: <% book.highest_rated.limit(1).each do |review| %>
+          <%=review.title %>
+          <%=review.score %>
+          <%=review.user.name %>
+        <% end %>
+    </div>
+  <% end %>
+</div>

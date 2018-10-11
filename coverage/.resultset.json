@@ -183,11 +183,50 @@
         null,
         null,
         1,
-        null,
+        1,
         null
       ],
       "/Users/meghanstang/turing/2module/projects/BookClub/app/helpers/application_helper.rb": [
         1,
+        null
+      ],
+      "/Users/meghanstang/turing/2module/projects/BookClub/spec/features/user_can_see_author_show_page_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/meghanstang/turing/2module/projects/BookClub/spec/features/user_can_see_book_show_page_spec.rb": [
@@ -504,7 +543,7 @@
         null,
         null,
         1,
-        7,
+        9,
         null,
         null,
         1,
@@ -563,7 +602,7 @@
         1,
         null,
         1,
-        23,
+        25,
         null,
         null,
         null,
@@ -609,8 +648,19 @@
         1,
         null,
         null
+      ],
+      "/Users/meghanstang/turing/2module/projects/BookClub/app/controllers/authors_controller.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1539290461
+    "timestamp": 1539294254
   }
 }

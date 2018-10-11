@@ -1,0 +1,5 @@
+<h1 align = "center"> All Authors </h1>
+
+<% @show_author.each do |author| %>
+    <h2 align="center"> <%=link_to(author.name, author_path(author))%> </h2>
+<% end %>
