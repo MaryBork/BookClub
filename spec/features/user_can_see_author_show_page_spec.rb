@@ -34,4 +34,10 @@ RSpec.describe 'Author Show Page' do
     expect(page).to have_content(@book_2.reviews[1].user.name)
     end
   end
+
+  it 'can display the list of authors' do
+    visit "/authors"
+
+    expect(page).to have_content(@author_1.name)
+  end
 end

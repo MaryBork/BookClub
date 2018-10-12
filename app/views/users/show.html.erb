@@ -1,0 +1,17 @@
+<%= link_to("All Books", book_path) %>
+<%= link_to("All Authors", authors_path) %>
+<%= link_to("All Users", users_path) %>
+
+<div id="user_name">
+  <h1 align="center"><%= @show_user.name %> </h1>
+</div>
+
+<div id="user_reviews">
+  <% i = 1 %>
+  <% @show_user.reviews.each do |review| %>
+    <h2 align = "left">Review #<%= i %>:<%= review.title%></h2>
+    <h3 align = "left">Rating:<%=review.score%></h3>
+    <h3 align = "left">"<%=review.description%>"</h3>
+    <% i+=1 %>
+  <% end %>
+</div>
