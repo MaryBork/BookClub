@@ -4,12 +4,22 @@
 
 <div id="reviews">
   <h2> Reviews </h2>
+  <div id="top_3_reviews">
   <% @show_book.highest_rated.each do |review| %>
     <p> <%= review.title %> (<%= review.score %>) By <%= review.user.name %></p>
   <% end %>
-
+  </div>
+  <div id="worst_3_reviews">
+  <% @show_book.lowest_rated.each do |review| %>
+    <p> <%= review.title %> (<%= review.score %>) By <%= review.user.name %></p>
+  <% end %>
+  </div>
+  <div id="overall_average_rating">
+    <p> Average Book Rating:<%= @show_book.reviews.average_review %></p>
+  </div>
 </div>
 
+<div id="show_book_attributes">
 <p>Title:<%= @show_book.title %></p>
 <p> <%= @show_book.pages %> Pages </p>
 <p>Author(s):<% @show_book.authors.each do |author| %>
@@ -22,3 +32,4 @@
   <p><%= review.description %></p>
 <% end %>
 </p>
+</div>

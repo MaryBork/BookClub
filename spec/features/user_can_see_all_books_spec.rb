@@ -3,6 +3,7 @@ require 'rails_helper'
 
 RSpec.describe "Books" do
   describe "When I visit /books" do
+
     it "Shows all book titles in database" do
 
       book_1 = Book.create(title: "The Iliad",  pages:260 , year:1975 , image_url: "https://images-na.ssl-images-amazon.com/images/I/419x%2BHUZRrL.jpg ")
