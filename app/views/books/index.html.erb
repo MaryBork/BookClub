@@ -1,12 +1,13 @@
 <h1> All Books </h1>
 
-<select>
-  <option><a href="/books?direction=desc&sort=average_score">Average Rating DESC</a></option>
-  <option><a href="/books?direction=asc&sort=average_score">Average Rating ASC</a></option>
-  <option><a href="/books?direction=desc&sort=pages">Page Count DESC</a></option>
-  <option><a href="/books?direction=asc&sort=pages">Page Count ASC</a></option>
-  <option><a href="/books?direction=desc&sort=reviews">Total Reviews DESC</a></option>
-  <option><a href="/books?direction=asc&sort=reviews">Total Reviews ASC</a></option>
+<select onchange="location = this.value;">
+  <option> ---------- </option>
+  <option value = "/books?direction=desc&sort=average_score">Average Rating DESC</option>
+  <option value = "/books?direction=asc&sort=average_score">Average Rating ASC</option>
+  <option value = "/books?direction=desc&sort=pages">Page Count DESC</option>
+  <option value = "/books?direction=asc&sort=pages">Page Count ASC</option>
+  <option value = "/books?direction=desc&sort=reviews">Total Reviews DESC</option>
+  <option value = "/books?direction=asc&sort=reviews">Total Reviews ASC</option>
 </select>
 
 <div>
