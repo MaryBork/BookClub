@@ -668,28 +668,13 @@
         null,
         1,
         0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/meghanstang/turing/2module/projects/BookClub/app/controllers/users_controller.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
+        0,
         0,
         0,
         null,
         null,
-        null
-      ],
-      "/Users/meghanstang/turing/2module/projects/BookClub/app/controllers/application_controller.rb": [
-        1,
-        1,
+        null,
+        null,
         null,
         null
       ],
@@ -707,6 +692,12 @@
         null,
         null
       ],
+      "/Users/meghanstang/turing/2module/projects/BookClub/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/meghanstang/turing/2module/projects/BookClub/app/controllers/authors_controller.rb": [
         1,
         1,
@@ -717,8 +708,22 @@
         1,
         null,
         null
+      ],
+      "/Users/meghanstang/turing/2module/projects/BookClub/app/controllers/users_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1539445558
+    "timestamp": 1539450077
   }
 }

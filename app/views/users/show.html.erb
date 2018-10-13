@@ -7,7 +7,8 @@
 </div>
 
 <div id="user_reviews">
-  <a href="/users?order=newest">Sort by Newest</a>
+  <a href="/users/#{@show_user.id}?sort=newest&direction=desc">New to Old</a>
+  <a href="/users/#{@show_user.id}?sort=oldest&direction=asc">Old to New</a>
   <% i = 1 %>
   <% @show_user.reviews.each do |review| %>
     <h2 align = "left">Review #<%= i %>:<%= review.title%></h2>
