@@ -1,3 +1,9 @@
+<head>
+  <LINK rel=stylesheet type="text/css" href="/books_new.css">
+</head>
+
+<div id="form">
+  <h1> Create a New Book </h1>
 <%= form_for @book, url: {action: "create"}, html: {class: "book_form"} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -16,3 +22,4 @@
   <br>
   <%= f.submit "Submit" %>
 <% end %>
+</div>
