@@ -1,14 +1,19 @@
+<head>
+  <LINK rel=stylesheet type="text/css" href="/books_show.css">
+</head>
 <%= link_to("All Books", books_path) %>
 
-<h1>Show Page </h1>
 
+<body>
 <div id="reviews">
   <h2> Reviews </h2>
+
   <div id="top_3_reviews">
   <% @show_book.highest_rated.each do |review| %>
     <p> <%= review.title %> (<%= review.score %>) By <%= review.user.name %></p>
   <% end %>
   </div>
+
   <div id="worst_3_reviews">
   <% @show_book.lowest_rated.each do |review| %>
     <p> <%= review.title %> (<%= review.score %>) By <%= review.user.name %></p>
@@ -19,6 +24,7 @@
   </div>
 </div>
 
+
 <div id="show_book_attributes">
 <p>Title:<%= @show_book.title %></p>
 <p> <%= @show_book.pages %> Pages </p>
@@ -26,6 +32,8 @@
   <li><%= author.name %></li>
 <% end %>
 </p>
+</div>
+<div class="book_details"
 <p>Review(s):<%@show_book.reviews.each do |review| %>
   <li><%= review.title %> (<%= review.score %>)</li>
   <p>By <%= review.user.name %></p>
@@ -33,3 +41,4 @@
 <% end %>
 </p>
 </div>
+</body>

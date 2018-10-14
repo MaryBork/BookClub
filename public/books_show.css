@@ -1,0 +1,43 @@
+body{
+display: inline-block;
+background-image: url(https://scontent-atl3-1.cdninstagram.com/vp/3b667ba05992c1a5b976000138671748/5C44ECBE/t51.2885-15/e35/42128276_916663988524712_2613617357890495281_n.jpg);
+background-size:cover;
+}
+
+#reviews {
+font-size: 20px;
+font-family: "Lucida Console";
+font-weight: bold;
+color:black;
+text-align: center;
+border: 5px solid red;
+float: center;
+padding: 60px;
+
+margin 10px;
+}
+
+#show_book_attributes{
+  font-size: 20px;
+  font-family: "Lucida Console";
+  font-weight: bold;
+  text-align: center;
+  color:black;
+  border: 5px solid red;
+  float: center;
+  padding: 60px;
+
+  margin: 10px;
+}
+.book_details{
+  font-size: 20px;
+  font-family: "Lucida Console";
+  font-weight: bold;
+  text-align: center;
+  color:black;
+  border: 5px solid red;
+  float: center;
+  padding: 60px;
+
+  margin:10px;
+}
