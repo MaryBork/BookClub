@@ -1,43 +1,102 @@
-body{
-display: inline-block;
-background-image: url(https://scontent-atl3-1.cdninstagram.com/vp/3b667ba05992c1a5b976000138671748/5C44ECBE/t51.2885-15/e35/42128276_916663988524712_2613617357890495281_n.jpg);
-background-size:cover;
+
+body {
+  background-image: url("https://www.desktopbackground.org/download/1024x600/2013/12/11/683750_ancient-yellow-concrete-wall-texture-backgrounds-photohdx_1162x775_h.jpg");
+  margin: 30px;
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-#reviews {
-font-size: 20px;
-font-family: "Lucida Console";
-font-weight: bold;
-color:black;
-text-align: center;
-border: 5px solid red;
-float: center;
-padding: 60px;
-
-margin 10px;
-}
-
-#show_book_attributes{
-  font-size: 20px;
-  font-family: "Lucida Console";
-  font-weight: bold;
+.header{
   text-align: center;
-  color:black;
-  border: 5px solid red;
+  font-family: "Lucida-Console";
+  font-weight: lighter;
+  font-size: 2em;
+  color: black;
   float: center;
-  padding: 60px;
-
-  margin: 10px;
+  border: none;
+  margin-bottom: 30px;
 }
-.book_details{
-  font-size: 20px;
-  font-family: "Lucida Console";
-  font-weight: bold;
-  text-align: center;
-  color:black;
-  border: 5px solid red;
-  float: center;
-  padding: 60px;
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
 
-  margin:10px;
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: orange;
+  color: white;
+}
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  overflow: hidden;
+  background-color: white;
+  border:5px solid black;
+
+
+}
+.reviews {
+  float: right;
+  width: 75%;
+  display: grid;
+  font-size: 18px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.sidebar {
+  float: left;
+  width: 15%;
+  font-family: "Lucida-Console";
+  font-weight: lighter;
+  font-size: 18;
+  list-style: none;
+  color: black;
+  padding: 20px;
+  border:5px solid black;
+  background-color: white;
+
+}
+
+.info {
+  height: auto;
+  width:auto;
+  border-radius: 25px;
+  font-size: 14;
+  font-weight: bold;
+  font-family: "Lucida-Console";
+  text-emphasis-color: "Red";
+
+  list-style: none;
+  background-image:linear-gradient(
+      rgba(255, 0, 0, 0.45),
+      rgba(255, 0, 0, 0.45)
+    ), url(https://previews.123rf.com/images/wklzzz/wklzzz1109/wklzzz110900093/10620317-오래-된-골동품-빈티지-종이-배경으로-나무에-공작-꽃.jpg);
+  margin-bottom: 5px;
+  margin-top:5px;
+  padding: 20px 20px;
+  float: center;
+
+  border:5px solid red;
+  padding: 40px 50px;
+}
+h2 {
+  font-size: 30px;
 }

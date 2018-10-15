@@ -1,9 +1,23 @@
-<%= link_to("All Books", books_path) %>
-<%= link_to("All Authors", authors_path) %>
+<html>
+<head>
+  <LINK rel=stylesheet type="text/css" href="/authors_show.css">
+</head>
+<body>
+  <div class = "topnav">
+    <a href="/books">Books</a>
+    <a href="/authors">Authors</a>
+    <a href="/users">Users</a>
+    <%= link_to("Add A New Book", new_book_path) %>
+  </div>
 
-<div id="author_attributes">
+  <div class = "header">
+    <%= @show_author.name %>
+  </div>
+
+<div id="author_attributes" class = "authors-grid">
   <% @show_author.books.each do |book| %>
-    <h1> <%= book.title %> </h1>
+  <div class = "info">
+    <h1 align = "center"> <%= book.title %> </h1>
     <%= book.reviews.average_review%> Stars</li>
     <li>Number of Reviews:  <%= book.reviews.count %>  </li>
     <% if book.authors.count >1 %>
@@ -15,13 +29,18 @@
     <% end %>
     <li><%= book.pages %> Pages</li>
     <li>Published in <%= book.year %></li>
-    <p><img src= "<%= book.image_url %>"</img></p>
+    <p><img width = 200px src= "<%= book.image_url %>"</img></p>
     <div id="highest_review">
-      <h2> Highest Review: <% book.highest_rated.limit(1).each do |review| %>
-          <%=review.title %>
-          <%=review.score %>
-          <%=review.user.name %>
+      <h4> Highest Review: </h4><% book.highest_rated.limit(1).each do |review| %>
+          <p><% review.score.times do  %>
+          <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
+          <% end %>
+          <%=review.title %></p>
+          <p align = "right">-<%=review.user.name %>
         <% end %>
     </div>
+  </div>
   <% end %>
 </div>
+</body>
+</html>

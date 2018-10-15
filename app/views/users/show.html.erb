@@ -1,22 +1,37 @@
-<%= link_to("All Books", book_path) %>
-<%= link_to("All Authors", authors_path) %>
-<%= link_to("All Users", users_path) %>
+<html>
+<head>
+  <LINK rel=stylesheet type="text/css" href="/user_index.css">
+</head>
+<body>
 
-<div id="user_name">
+  <div class = "topnav">
+    <a href="/books">Books</a>
+    <a href="/authors">Authors</a>
+    <a href="/users">Users</a>
+    <%= link_to("Add A New Book", new_book_path) %>
+    <div align = "right" id="user_reviews">
+      <select onchange = "location = this.value;">
+        <option> ---------- </option>
+        <option value="/users/<%=@show_user.id%>?sort=newest">New to Old</option>
+        <option value="/users/<%=@show_user.id%>?sort=oldest">Old to New</option>
+      </select>
+    </div>
+  </div>
+
+<div id="user_name" class = "header">
   <h1 align="center"><%= @show_user.name %> </h1>
 </div>
 
-<div id="user_reviews">
-  <select onchange = "location = this.value;">
-    <option> ---------- </option>
-    <option value="/users/<%=@show_user.id%>?sort=newest">New to Old</option>
-    <option value="/users/<%=@show_user.id%>?sort=oldest">Old to New</option>
-  </select>
-  <% i = 1 %>
+<div class = "user-grid">
   <% @show_user.reviews.each do |review| %>
-    <h2 align = "left">Review #<%= i %>:<%= review.title%></h2> <%= link_to("Delete", method: :destroy)  %>
+  <div class = "info">
+    <h2 align = "left">Reviewed <%= link_to(review.book.title, book_path) %></h2>
+    <%= review.title%></h2> <%= link_to("Delete", method: :destroy)  %>
     <h3 align = "left">Rating:<%=review.score%></h3>
     <h3 align = "left">"<%=review.description%>"</h3>
-    <% i+=1 %>
+  </div>
   <% end %>
 </div>
+</div>
+</body>
+</html>

@@ -2,63 +2,75 @@
 <head>
   <LINK rel=stylesheet type="text/css" href="/books_index.css">
 </head>
-
 <body>
-<div class="header">
-<h1> Index </h1>
-
-<div class="form_format">
-<select onchange="location = this.value;">
-  <option> ---------- </option>
-  <option value = "/books?direction=desc&sort=average_score">Average Rating DESC</option>
-  <option value = "/books?direction=asc&sort=average_score">Average Rating ASC</option>
-  <option value = "/books?direction=desc&sort=pages">Page Count DESC</option>
-  <option value = "/books?direction=asc&sort=pages">Page Count ASC</option>
-  <option value = "/books?direction=desc&sort=reviews">Total Reviews DESC</option>
-  <option value = "/books?direction=asc&sort=reviews">Total Reviews ASC</option>
-</select>
-</div>
-</div>
-
-<div id= "book_list">
-<% @books.each do |book| %>
-
-  <div class= "info"><li><%= link_to(book.title, book_path(book)) %>   [Average Review: <%= book.reviews.average_review%> Stars]</li>
-  <li>Number of Reviews:  <%= book.reviews.count %>  </li>
-
-
-  <% book.authors.each do |author| %>
-    <li><%= author.name %></li>
-  <% end %>
-  <li><%= book.pages %> Pages</li>
-  <li>Published in <%= book.year %></li>
+  <div class="topnav">
+    <a class="active" href="/books">Books</a>
+    <a href="/authors">Authors</a>
+    <a href="/users">Users</a>
+    <div class="form_format">
+    <select onchange="location = this.value;">
+      <option>Sort By</option>
+      <option value = "/books?direction=desc&sort=average_score">Average Rating DESC</option>
+      <option value = "/books?direction=asc&sort=average_score">Average Rating ASC</option>
+      <option value = "/books?direction=desc&sort=pages">Page Count DESC</option>
+      <option value = "/books?direction=asc&sort=pages">Page Count ASC</option>
+      <option value = "/books?direction=desc&sort=reviews">Total Reviews DESC</option>
+      <option value = "/books?direction=asc&sort=reviews">Total Reviews ASC</option>
+    </select>
+    </div>
+    <%= link_to("Add A New Book", new_book_path) %>
   </div>
 
-
-  <% end %>
+<div class="header">
+<h1> Index </h1>
 </div>
 
-
-<div class= "statistics">
-  <h1> STATISTICS </h1>
+<div class= "sidebar">
+  <h1 align = "center"> STATISTICS </h1>
   <div id= "highest_rated_books">
+    <h2 align = "left">Highest Rated Books: </h2>
+        <% @average_ordered_books.take(3).each do |book| %>
+        <p align = "left"><%= link_to(book.title, book_path(book)) %></p>
+        <% end %>
 
-  <p>Highest Rated Books: <% @average_ordered_books.take(3).each do |book| %>
-    <li><%= book.title %> </li>
-    <% end %>
-  </p>
   </div>
 
   <div id="lowest_rated_books">
-  <p>Worst Rated Books: <% @average_ordered_books.reverse.take(3).each do |book|%>
-    <li><%= book.title %> </li>
-    <% end %>
-  </p>
+    <h2 align = "left">Worst Rated Books: </h2>
+      <% @average_ordered_books.reverse.take(3).each do |book|%>
+      <p align = "left"><%= link_to(book.title, book_path(book)) %></p>
+      <% end %>
+    </p>
   </div>
 
-    <div id="new_book_link">
-        <%= link_to("Add A New Book", new_book_path) %>
-    </div>
+  <div id="new_book_link">
+    <h2><%= link_to("Add A New Book", new_book_path) %></h2>
+  </div>
 </div>
+
+
+<div id= "book_list">
+<% @books.each do |book| %>
+  <div class= "info">
+    <h1 align = "center"><%= link_to(book.title, book_path(book)) %></h1>
+    <p align = "center">[Average Review: <%= book.reviews.average_review%> Stars]</p>
+    <div class = "book_grid_item">
+    <img width= 300px src= "<%=book.image_url%>"/>
+    <li>Number of Reviews:  <%= book.reviews.count %>  </li>
+
+  <% book.authors.each do |author| %>
+    <li>Author: <%=link_to(author.name, author_path(author))%> </li>
+  <% end %>
+  <li>Number of Pages: <%= book.pages %> </li>
+  <li>Published in <%= book.year %></li>
+  </div>
+</div>
+
+
+  <% end %>
+</div>
+
+
+
 </body>
 </html>
