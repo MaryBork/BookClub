@@ -15,11 +15,12 @@
 </div>
 
 <div class = "stats-bar">
-  <h2 align = "center">Author(s): <% @show_book.authors.each do |author| %>
+  <h2>Author(s): <% @show_book.authors.each do |author| %>
     <%= link_to(author.name, author_path(author))%>
     <% end %> </h2>
     <h2>Page Count: <%= @show_book.pages %> pages</h2>
     <h2>Number of Reviews: <%= @show_book.reviews.count %></h2>
+    <h2><%= link_to("Write a Review", new_review_path) %></h2>
 </div>
 
 <br>
@@ -52,7 +53,10 @@
   <% end %>
   </div>
   <div id="overall_average_rating">
-    <h3> Average Book Rating: <%= @show_book.reviews.average_review.round(2) %></h3>
+    <h3> Average Book Rating:
+      <% if !@show_book.reviews.empty? %>
+      <%= @show_book.reviews.average_review.round(2) %></h3>
+      <% end %>
   </div>
 </div>
 

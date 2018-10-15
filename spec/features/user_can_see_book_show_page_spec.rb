@@ -35,16 +35,16 @@ RSpec.describe 'Book Show Page' do
 
     end
 
+
     it 'shows book attributes' do
 
       visit "/books/#{@book_1.id}"
 
-      within('#show_book_attributes') do
+
         expect(page).to have_content(@book_1.title)
         expect(page).to have_content(@book_1.authors.first.name)
         expect(page).to have_content(@book_1.pages)
         expect(page).to have_content(@book_1.reviews[0].title)
-      end
     end
 
     it 'shows top three reviews' do
@@ -52,23 +52,17 @@ RSpec.describe 'Book Show Page' do
 
       within('#top_3_reviews') do
         expect(page).to have_content(@review_7.title)
-        expect(page).to have_content(@review_7.score)
         expect(page).to have_content(@review_7.user.name)
         expect(page).to have_content(@review_8.title)
-        expect(page).to have_content(@review_8.score)
         expect(page).to have_content(@review_8.user.name)
         expect(page).to have_content(@review_9.title)
         expect(page).to have_content(@review_9.user.name)
-        expect(page).to have_content(@review_9.score)
         expect(page).to_not have_content(@review_1.title)
-        expect(page).to_not have_content(@review_1.score)
         expect(page).to_not have_content(@review_1.user.name)
         expect(page).to_not have_content(@review_2.title)
-        expect(page).to_not have_content(@review_2.score)
         expect(page).to_not have_content(@review_2.user.name)
         expect(page).to_not have_content(@review_3.title)
         expect(page).to_not have_content(@review_3.user.name)
-        expect(page).to_not have_content(@review_3.score)
       end
     end
 
@@ -77,23 +71,17 @@ RSpec.describe 'Book Show Page' do
 
       within('#worst_3_reviews') do
         expect(page).to_not have_content(@review_7.title)
-        expect(page).to_not have_content(@review_7.score)
         expect(page).to_not have_content(@review_7.user.name)
         expect(page).to_not have_content(@review_8.title)
-        expect(page).to_not have_content(@review_8.score)
         expect(page).to_not have_content(@review_8.user.name)
         expect(page).to_not have_content(@review_9.title)
         expect(page).to_not have_content(@review_9.user.name)
-        expect(page).to_not have_content(@review_9.score)
         expect(page).to have_content(@review_1.title)
-        expect(page).to have_content(@review_1.score)
         expect(page).to have_content(@review_1.user.name)
         expect(page).to have_content(@review_2.title)
-        expect(page).to have_content(@review_2.score)
         expect(page).to have_content(@review_2.user.name)
         expect(page).to have_content(@review_3.title)
         expect(page).to have_content(@review_3.user.name)
-        expect(page).to have_content(@review_3.score)
       end
     end
 
@@ -101,7 +89,7 @@ RSpec.describe 'Book Show Page' do
       visit "/books/#{@book_1.id}"
 
       within('#overall_average_rating') do
-        expect(page).to have_content("Average Book Rating:3")
+        expect(page).to have_content("Average Book Rating: 3.0")
       end
     end
   end

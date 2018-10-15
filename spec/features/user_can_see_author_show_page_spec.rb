@@ -27,10 +27,8 @@ RSpec.describe 'Author Show Page' do
 
     within '#author_attributes' do
     expect(page).to have_content(@book_1.title)
-    expect(page).to have_content(@book_1.reviews[0].score)
     expect(page).to have_content(@book_1.reviews[0].user.name)
     expect(page).to have_content(@book_2.title)
-    expect(page).to have_content(@book_2.reviews[1].score)
     expect(page).to have_content(@book_2.reviews[1].user.name)
     end
   end

@@ -17,8 +17,8 @@
 <div id="author_attributes" class = "authors-grid">
   <% @show_author.books.each do |book| %>
   <div class = "info">
-    <h1 align = "center"> <%= book.title %> </h1>
-    <%= book.reviews.average_review%> Stars</li>
+    <h1 align = "center"> <%= link_to(book.title, book_path(book)) %> </h1>
+    <%= book.reviews.average_review.round(2)%> Stars</li>
     <li>Number of Reviews:  <%= book.reviews.count %>  </li>
     <% if book.authors.count >1 %>
       <% book.authors.each do |author| %>
@@ -36,7 +36,7 @@
           <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
           <% end %>
           <%=review.title %></p>
-          <p align = "right">-<%=review.user.name %>
+          <p align = "right">-<%= link_to(review.user.name, user_path(review.user)) %>
         <% end %>
     </div>
   </div>
