@@ -50,8 +50,8 @@ RSpec.describe "Books" do
 
       visit '/books'
 
-      expect(page).to have_content("260 Pages")
-      expect(page).to have_content("269 Pages")
+      expect(page).to have_content("Number of Pages: 260")
+      expect(page).to have_content("Number of Pages: 269")
     end
 
     it "Shows all book years published in database" do
