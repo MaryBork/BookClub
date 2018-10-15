@@ -1,44 +1,72 @@
+<html>
 <head>
   <LINK rel=stylesheet type="text/css" href="/books_show.css">
 </head>
-<%= link_to("All Books", books_path) %>
-
-
 <body>
-<div id="reviews">
-  <h2> Reviews </h2>
+<div class = "topnav">
+  <a href="/books">Books</a>
+  <a href="/authors">Authors</a>
+  <a href="/users">Users</a>
+  <%= link_to("Add A New Book", new_book_path) %>
+</div>
+
+<div class = "header">
+  <h1 align = "center"><%= @show_book.title %></h1>
+</div>
+
+<div class = "stats-bar">
+  <h2 align = "center">Author(s): <% @show_book.authors.each do |author| %>
+    <%= link_to(author.name, author_path(author))%>
+    <% end %> </h2>
+    <h2>Page Count: <%= @show_book.pages %> pages</h2>
+    <h2>Number of Reviews: <%= @show_book.reviews.count %></h2>
+</div>
+
+<br>
+<br>
+
+<div id="reviews" class = "sidebar">
+  <h2 align = "center"> Statistics </h2>
 
   <div id="top_3_reviews">
+  <h3 align = "left"> Best Reviews: </h3>
   <% @show_book.highest_rated.each do |review| %>
-    <p> <%= review.title %> (<%= review.score %>) By <%= review.user.name %></p>
+    <p>  <% review.score.times do  %>
+          <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
+          <% end %> </p>
+    <p><%= review.title %> </p>
+    <p align = "right">-<%= review.user.name %></p>
+    <br>
   <% end %>
   </div>
 
   <div id="worst_3_reviews">
+    <h3 align = "left"> Worst Reviews: </h3>
   <% @show_book.lowest_rated.each do |review| %>
-    <p> <%= review.title %> (<%= review.score %>) By <%= review.user.name %></p>
+  <p>  <% review.score.times do  %>
+        <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
+        <% end %> </p>
+  <p><%= review.title %> </p>
+  <p align = "right">-<%= review.user.name %></p>
+  <br>
   <% end %>
   </div>
   <div id="overall_average_rating">
-    <p> Average Book Rating:<%= @show_book.reviews.average_review %></p>
+    <h3> Average Book Rating: <%= @show_book.reviews.average_review.round(2) %></h3>
   </div>
 </div>
 
-
-<div id="show_book_attributes">
-<p>Title:<%= @show_book.title %></p>
-<p> <%= @show_book.pages %> Pages </p>
-<p>Author(s):<% @show_book.authors.each do |author| %>
-  <li><%= author.name %></li>
-<% end %>
-</p>
+<div id="show_book_attributes" class = "reviews">
+  <%@show_book.reviews.each do |review| %>
+  <div class = "info">
+    <p> <% review.score.times do  %>
+          <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
+          <% end %><%=review.title%></p>
+          <p>"<%= review.description %>"</p>
+  <p align = "right">-<%= review.user.name %></p>
 </div>
-<div class="book_details"
-<p>Review(s):<%@show_book.reviews.each do |review| %>
-  <li><%= review.title %> (<%= review.score %>)</li>
-  <p>By <%= review.user.name %></p>
-  <p><%= review.description %></p>
 <% end %>
-</p>
 </div>
 </body>
+
+</html>

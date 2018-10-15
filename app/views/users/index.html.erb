@@ -1,5 +1,24 @@
-<h1 align = "center"> All Users </h1>
+<html>
+<head>
+  <LINK rel=stylesheet type="text/css" href="/user_index.css">
+</head>
+<body>
 
+  <div class="topnav">
+    <a href="/books">Books</a>
+    <a href="/authors">Authors</a>
+    <a class="active" href="/users">Users</a>
+    <%= link_to("Add A New Book", new_book_path) %>
+  </div>
+
+<h1 align = "center"> All Users </h1>
+<div class = "grid">
 <% @users.each do |user| %>
+  <div class = "grid-block">
     <h2 align="center"> <%=link_to(user.name, user_path(user))%> </h2>
+    <img width= 100px src= "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person5-512.png"/>
+  </div>
 <% end %>
+</div>
+</body>
+</html>
