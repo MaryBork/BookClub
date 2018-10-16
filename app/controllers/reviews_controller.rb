@@ -6,7 +6,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    new_user = User.create(name: params[:user_name].titleize)
+    binding.pry
+    new_user = User.create(name: params[:user_name])
     reviewed_book = Book.find(params[:book_id])
     review_params[:user] = new_user
     created_review = reviewed_book.reviews.create(review_params)
