@@ -1,0 +1,30 @@
+<html>
+<head>
+  <LINK rel=stylesheet type="text/css" href="/reviews_new.css">
+</head>
+<body>
+  <div class="topnav">
+    <a href="/books">Books</a>
+    <a href="/authors">Authors</a>
+    <a href="/users">Users</a>
+    <a class="active" <%= link_to("Add A New Book", new_book_path) %></a>
+  </div>
+
+  <div id="form">
+    <h1> Create a New Review </h1>
+    <%= form_for @review do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :score %>
+    <%= f.text_field :score %>
+    <br>
+    <div class= "text_box">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+    </div>
+    <%= f.submit "Submit" %>
+  </div>
+</body>
+</html>

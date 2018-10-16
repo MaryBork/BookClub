@@ -18,8 +18,11 @@
   <% @show_author.books.each do |book| %>
   <div class = "info">
     <h1 align = "center"> <%= link_to(book.title, book_path(book)) %> </h1>
+    <% if !book.reviews.empty? %>
     <%= book.reviews.average_review.round(2)%> Stars</li>
     <li>Number of Reviews:  <%= book.reviews.count %>  </li>
+    <% else %><%= "This book has not yet been reviewed." %>
+    <% end %>
     <% if book.authors.count >1 %>
       <% book.authors.each do |author| %>
           <% if author.name != "#{@show_author.name}" %>
@@ -31,13 +34,17 @@
     <li>Published in <%= book.year %></li>
     <p><img width = 200px src= "<%= book.image_url %>"</img></p>
     <div id="highest_review">
-      <h4> Highest Review: </h4><% book.highest_rated.limit(1).each do |review| %>
+      <h4> Highest Review: </h4>
+      <% if !book.reviews.empty? %>
+      <% book.highest_rated.limit(1).each do |review| %>
           <p><% review.score.times do  %>
           <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
           <% end %>
           <%=review.title %></p>
           <p align = "right">-<%= link_to(review.user.name, user_path(review.user)) %>
         <% end %>
+        <%else%><%= "This book has not yet been reviewed." %>
+      <% end %>
     </div>
   </div>
   <% end %>
