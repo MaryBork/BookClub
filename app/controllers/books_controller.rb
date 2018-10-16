@@ -3,19 +3,32 @@ class BooksController < ApplicationController
   def index
     @books = Book.sorted_by(params[:direction], params[:sort])
     @average_ordered_books = Book.sorted_by("desc", "average_score")
+    @top_3_users = User.top_users
   end
 
   def show
-    @show_book = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def create
-    @book = Book.new(book_params)
-    @author = Author.find(params[:id])
-    if @book.save
-      redirect_to(book_path(id: @book.id)) if @book.id
-    else
-      render "new"
+    sorted_params = sort_params(book_params)
+    new_book = Book.create(sorted_params)
+    redirect_to(book_path(id:new_book.id))
+  end
+
+  def sort_params(new_params)
+    new_book_params = Hash.new(0)
+    new_book_params[:title] = new_params["title"]
+    new_book_params[:pages] = new_params["pages"]
+    new_book_params[:year] = new_params["year"]
+    new_book_params[:image_url] = new_params["image_url"]
+    new_book_params[:authors] = auth_to_array(new_params["authors"])
+    new_book_params
+  end
+
+  def auth_to_array(array_string)
+    array_string.titleize.split(',').map do |name|
+      Author.find_or_create_by(name: name)
     end
   end
 
@@ -28,6 +41,13 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :pages, :year, :authors, :image_url)
   end
+
+  # def destroy
+  #   book = Book.find(params[:id])
+  #   book.destroy
+  #   redirect_to(books_path)
+  # end
+
 
 
 end

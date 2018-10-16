@@ -43,6 +43,14 @@
     </p>
   </div>
 
+  <div id="most-common-visitors">
+    <h2 align = "left">Most Active Users: </h2>
+      <% @top_3_users.each do |user|%>
+      <p align = "left"><%= link_to(user.name, user_path(user)) %></p>
+      <% end %>
+    </p>
+  </div>
+
   <div id="new_book_link">
     <h2><%= link_to("Add A New Book", new_book_path) %></h2>
   </div>
@@ -53,10 +61,17 @@
 <% @books.each do |book| %>
   <div class= "info">
     <h1 align = "center"><%= link_to(book.title, book_path(book)) %></h1>
-    <p align = "center">[Average Review: <%= book.reviews.average_review%> Stars]</p>
+    <% if !book.reviews.empty? %>
+      <p align = "center">[Average Review: <%= book.reviews.average_review%> Stars]</p>
+      <%else%><%= link_to("Create the first review!", new_book_review_path(book)) %>
+      <%end%>
     <div class = "book_grid_item">
     <img width= 300px src= "<%=book.image_url%>"/>
-    <li>Number of Reviews:  <%= book.reviews.count %>  </li>
+    <li>Number of Reviews:
+      <% if !book.reviews.empty? %>
+      <%= book.reviews.count %>
+      <%else%><%= 0 %>
+      <%end%></li>
 
   <% book.authors.each do |author| %>
     <li>Author: <%=link_to(author.name, author_path(author))%> </li>

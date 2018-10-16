@@ -11,16 +11,17 @@
 </div>
 
 <div class = "header">
-  <h1 align = "center"><%= @show_book.title %></h1>
+  <h1 align = "center"><%= @book.title %></h1>
 </div>
 
 <div class = "stats-bar">
-  <h2>Author(s): <% @show_book.authors.each do |author| %>
-    <%= link_to(author.name, author_path(author))%>
+  <h2>Author(s):
+    <% @book.authors.each do |author| %>
+      <%= link_to(author.name, author_path(author))%>
     <% end %> </h2>
-    <h2>Page Count: <%= @show_book.pages %> pages</h2>
-    <h2>Number of Reviews: <%= @show_book.reviews.count %></h2>
-    <h2><%= link_to("Write a Review", new_review_path) %></h2>
+  <h2>Page Count: <%= @book.pages %> pages</h2>
+  <h2>Number of Reviews: <%= @book.reviews.count %></h2>
+  <h2><%= link_to("Write a Review", new_book_review_path(@book)) %></h2>
 </div>
 
 <br>
@@ -31,7 +32,7 @@
 
   <div id="top_3_reviews">
   <h3 align = "left"> Best Reviews: </h3>
-  <% @show_book.highest_rated.each do |review| %>
+  <% @book.highest_rated.each do |review| %>
     <p>  <% review.score.times do  %>
           <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
           <% end %> </p>
@@ -43,8 +44,8 @@
 
   <div id="worst_3_reviews">
     <h3 align = "left"> Worst Reviews: </h3>
-  <% @show_book.lowest_rated.each do |review| %>
-  <p>  <% review.score.times do  %>
+    <% @book.lowest_rated.each do |review| %>
+    <p>  <% review.score.times do  %>
         <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
         <% end %> </p>
   <p><%= review.title %> </p>
@@ -54,14 +55,14 @@
   </div>
   <div id="overall_average_rating">
     <h3> Average Book Rating:
-      <% if !@show_book.reviews.empty? %>
-      <%= @show_book.reviews.average_review.round(2) %></h3>
+      <% if !@book.reviews.empty? %>
+      <%= @book.reviews.average_review.round(2) %></h3>
       <% end %>
   </div>
 </div>
 
 <div id="show_book_attributes" class = "reviews">
-  <%@show_book.reviews.each do |review| %>
+  <%@book.reviews.each do |review| %>
   <div class = "info">
     <p> <% review.score.times do  %>
           <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">

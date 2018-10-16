@@ -5,13 +5,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @show_user = User.find(params[:id])
-    @user_chronological_reviews = @show_user.reviews.chronological_order_reviews(params[:sort].to_s)
+    @user = User.find(params[:id])
+    @reviews = @user.reviews.chronological_order_reviews(params[:sort])
+
   end
 
   def destroy
     @review = Review.find(params[:id]).delete
-    redirect_to @show_user
+    redirect_to @user
   end
 
 

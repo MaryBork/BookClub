@@ -4,11 +4,15 @@ class Review < ApplicationRecord
   belongs_to :user
 
   def self.average_review
-    average(:score)
+    if count(:score) >0
+      average_score = average(:score)
+    else
+      average_score = 0
+    end
   end
 
-  def self.chronological_order_reviews(sort)
-    if sort == "newest"
+  def self.chronological_order_reviews(sort = "newest")
+    if sort == "newest" || sort == nil
       order(id: :desc)
     elsif sort =="oldest"
       order(id: :asc)
