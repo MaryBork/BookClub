@@ -6,17 +6,23 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
-    new_user = User.create(name: params[:user_name])
+    new_review = Hash.new(0)
     reviewed_book = Book.find(params[:book_id])
-    review_params[:user] = new_user
-    created_review = reviewed_book.reviews.create(review_params)
+    new_user = User.create(name: params[:review][:user])
+    new_review[:title] = params[:review][:title]
+    new_review[:score] = params[:review][:score]
+    new_review[:description] = params[:review][:description]
+    new_review[:user] = new_user
+    created_review = reviewed_book.reviews.create(new_review)
+
     redirect_to(book_path(reviewed_book))
   end
 
   def destroy
-    Review.find(params[:id]).destroy
-    redirect_to(user_path(id: params[:user_id]))
+    @review = Review.find(params[:id])
+    @user = @review.user
+    @review.destroy
+    redirect_to(user_path(id: @user.id)
   end
 
   private

@@ -22,6 +22,7 @@
   <h2>Page Count: <%= @book.pages %> pages</h2>
   <h2>Number of Reviews: <%= @book.reviews.count %></h2>
   <h2><%= link_to("Write a Review", new_book_review_path(@book)) %></h2>
+  <h2><%= link_to("Delete Book", root_path, method: :delete) %></h2>
 </div>
 
 <br>

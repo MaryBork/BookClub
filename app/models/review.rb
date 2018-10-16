@@ -13,7 +13,7 @@ class Review < ApplicationRecord
 
   def self.chronological_order_reviews(sort = "newest")
     if sort == "newest" || sort == nil
-      order(id: :desc)
+      order(id: :desc) unless nil
     elsif sort =="oldest"
       order(id: :asc)
     end

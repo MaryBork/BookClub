@@ -20,7 +20,5 @@ describe 'user can create a new book' do
     expect(page).to have_content(book_pages)
     expect(page).to have_content(book_url)
     expect(current_path).to eq("/books/#{Book.last.id}")
-
-
   end
 end

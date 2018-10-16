@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Books" do
   describe "When I visit /books/:id" do
 
-    xit "Has a link that allows you to delete a book" do
+    it "Has a link that allows you to delete a book" do
       book_1 = Book.create(title: "The Iliad",  pages:260 , year:1975 , image_url: "https://images-na.ssl-images-amazon.com/images/I/419x%2BHUZRrL.jpg ")
       author_1 = Author.create(name: "Homer")
       book_author_1 = BookAuthor.create(author:author_1, book:book_1)
