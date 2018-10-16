@@ -55,7 +55,7 @@ RSpec.describe 'Users Pages' do
     it 'shows reviews in chronological new to old order' do
 
       visit "/users/#{@user_1.id}?sort=newest"
-      save_and_open_page
+
 
       expect(page).to have_content(@review_2.title)
     end
@@ -63,7 +63,6 @@ RSpec.describe 'Users Pages' do
     it 'shows reviews in old to new chronological order' do
 
       visit "/users/#{@user_1.id}?sort=oldest"
-      save_and_open_page
       expect(page).to have_content(@review_1.title)
     end
 end

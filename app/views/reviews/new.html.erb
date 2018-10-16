@@ -11,20 +11,22 @@
   </div>
 
   <div id="form">
-    <h1> Create a New Review </h1>
-    <%= form_for @review do |f| %>
+    <h1> Write a Review</h1>
+    <%= form_for [@book,@review] do |f| %>
+    <%= f.label :user %>
+    <%= f.text_field :user, value: "" %>
+    <br>
     <%= f.label :title %>
     <%= f.text_field :title %>
     <br>
     <%= f.label :score %>
-    <%= f.text_field :score %>
+    <%= f.number_field :score %>
     <br>
-    <div class= "text_box">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_field :description %>
     <br>
-    </div>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Create Review" %>
+  <% end %>
   </div>
 </body>
 </html>

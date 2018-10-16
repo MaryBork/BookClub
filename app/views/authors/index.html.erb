@@ -17,7 +17,7 @@
 <% @authors.each do |author| %>
 <div class = "info">
     <h2 align="center"> <%=link_to(author.name, author_path(author))%> </h2>
-    <h6 align = "center"><%= link_to "Delete Author", author_path(author), method: :delete %>
+    <h6 align = "center"><%= link_to "Delete Author", author, method: :delete %>
     <% author.books.each do |book|%>
       <img width= 100px src= "<%=book.image_url%>"/>
     <% end %>
