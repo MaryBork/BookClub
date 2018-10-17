@@ -9,19 +9,13 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
-    book_ids = BookAuthor.where(author_id: params[:id]).pluck(:book_id)
-    book_author_ids = BookAuthor.where(author_id: params[:id]).pluck(:id)
-
-    book_ids.each do |id|
-      Book.find(id).destroy
-    end
-
-    book_author_ids.each do |id|
-      BookAuthor.find(id).destroy
-    end
-
-    author = Author.find(params[:id])
-    author.destroy
+    book_id_array = BookAuthor.where(author_id: params[:id]).pluck(:book_id)
+    Author.find(params[:id]).books.each do |book|
+      book.destroy
+      end
+    BookAuthor.where(author_id: params[:id]).destroy_all
+    Author.find(params[:id]).destroy
+    redirect_to root_path
   end
 
 

@@ -13,7 +13,7 @@
   <div class = "header">
     <%= @show_author.name %>
   </div>
-
+<h1 align = "center"><%=link_to "Delete Author", author_path(@show_author), method: :delete %></h1>
 <div id="author_attributes" class = "authors-grid">
   <% @show_author.books.each do |book| %>
   <div class = "info">
