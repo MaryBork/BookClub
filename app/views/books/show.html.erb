@@ -38,7 +38,7 @@
           <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
           <% end %> </p>
     <p><%= review.title %> </p>
-    <p align = "right">-<%= review.user.name %></p>
+    <p align = "right">-<%=link_to  review.user.name, user_path(review.user) %></p>
     <br>
   <% end %>
   </div>
@@ -50,7 +50,7 @@
         <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
         <% end %> </p>
   <p><%= review.title %> </p>
-  <p align = "right">-<%= review.user.name %></p>
+  <p align = "right">-<%=link_to  review.user.name, user_path(review.user) %></p>
   <br>
   <% end %>
   </div>
@@ -69,7 +69,7 @@
           <img width = 15px src = "https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG">
           <% end %><%=review.title%></p>
           <p>"<%= review.description %>"</p>
-  <p align = "right">-<%= review.user.name %></p>
+<p align = "right">-<%=link_to  review.user.name, user_path(review.user) %></p>
 </div>
 <% end %>
 </div>

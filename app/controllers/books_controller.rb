@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   def create
     sorted_params = sort_params(book_params)
     new_book = Book.create(sorted_params)
-    redirect_to(book_path(id:new_book.id))
+    redirect_to book_path(new_book)
   end
 
   def sort_params(new_params)
