@@ -2,8 +2,8 @@ class Book <ApplicationRecord
 validates_presence_of :title, :pages, :year
 has_many :book_authors
 has_many :reviews
-has_many :authors, through: :book_authors
-has_many :users, through: :reviews
+has_many :authors, through: :book_authors, dependent: :destroy
+has_many :users, through: :reviews, dependent: :destroy
 
 def self.sorted_by(direction,sort)
   if direction && sort
@@ -29,11 +29,8 @@ def lowest_rated
   reviews.order(score: :ASC).limit(3)
 end
 
-def self.delete_books(auth_id)
-  books = "(SELECT book_authors.book_id FROM book_authors WHERE author_id = ?)",auth_id
-  destroyed_books = books.pluck(:id)
-
-  destroy(destroyed_books)
+def self.delete_books(book_ids)
+  destroy(book_ids)
 end
 
 
