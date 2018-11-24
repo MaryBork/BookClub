@@ -26,7 +26,7 @@
   <% if @reviews.count>0 %>
     <% @reviews.each do |review| %>
       <div class = "info">
-        <h3 align = "left"><%=link_to "Delete Review", user_review_path(review), method: :delete %></h3>
+        <h3 align = "left"><%=link_to "Delete Review", user_review_path(review.user,review), method: :delete %></h3>
         <h2 align = "left">Reviewed <%= link_to(review.book.title, book_path(review.book)) %></h2>
         <h2><%= review.title%>
          <%=review.score.times do %>

@@ -11,7 +11,7 @@ RSpec.describe "Reviews" do
       visit user_path(user_1)
       click_on "Delete Review"
 
-      expect(current_path).to eq(user_review_path(user_1))
+      expect(current_path).to eq(user_path(user_1))
     end
   end
 end
